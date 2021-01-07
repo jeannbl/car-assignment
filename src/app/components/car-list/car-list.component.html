@@ -1,0 +1,39 @@
+<div class="">
+    <div class="col-md-12">
+        <h2 class="text-center">Car List</h2>
+
+        <div class="text-right">
+            <button type="button" class="btn btn-primary mb-2" (click)="onClickAddCar()">Add Car</button>
+        </div>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nro</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Color</th>
+                    <th>Year</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let car of cars; let indice = index">
+                    <td>{{indice+1}}</td>
+                    <td>{{car.brand}}</td>
+                    <td>{{car.model}}</td>
+                    <td>{{car.color}}</td>
+                    <td>{{car.year}}</td>
+                    <td>{{car.price}}</td>
+                    <td>{{car.carStatus.name}}</td>
+                    <td width="150" class="text-center">
+                        <button type="button" class="btn btn-info btn-sm mr-2" (click)="onClickEditCar(car.id)">Edit</button>
+                        <button type="button" class="btn btn-danger btn-sm" (click)="onClickDeleteCar(car.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
