@@ -1,1 +1,31 @@
-<p>car-owner-list works!</p>
+<div class="">
+    <div class="col-md-12">
+        <h2 class="text-center">Assignment Car List</h2>
+
+        <div class="text-right">
+            <button type="button" class="btn btn-primary mb-2" (click)="onCLickNewCarOwner()">Assign Car</button>
+        </div>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nro</th>
+                    <th>Car</th>
+                    <th>Owner</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let carOwner of carOwners; let i = index">
+                    <td>{{i +1}} </td>
+                    <td> {{carOwner.car.brand}}  {{carOwner.car.model}} - {{carOwner.car.year}} </td>
+                    <td> {{carOwner.owner.name}} {{carOwner.owner.firstLastName}} {{carOwner.owner.secondLastName}} </td>
+                    <td width="150" class="text-center">
+                        <button type="button" class="btn btn-info btn-sm mr-2" (click)="onClickEditCarOwner(carOwner.id)">Edit</button>
+                        <button type="button" class="btn btn-danger btn-sm" (click)="onClickDeleteCarOwner(carOwner.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

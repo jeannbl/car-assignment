@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OwnerAddComponent } from './owner-add.component';
+import { OwnerSaveComponent } from './owner-save.component';
 
-describe('OwnerAddComponent', () => {
-  let component: OwnerAddComponent;
-  let fixture: ComponentFixture<OwnerAddComponent>;
+describe('OwnerSaveComponent', () => {
+  let component: OwnerSaveComponent;
+  let fixture: ComponentFixture<OwnerSaveComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OwnerAddComponent ]
+      declarations: [ OwnerSaveComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OwnerAddComponent);
+    fixture = TestBed.createComponent(OwnerSaveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -3,7 +3,7 @@
         <h2 class="text-center">Car Status List</h2>
 
         <div class="text-right">
-            <button type="button" class="btn btn-primary mb-2" >Add Car Status</button>
+            <button type="button" class="btn btn-primary mb-2" (click)="onCLickNewCarStatus()">Add Car Status</button>
         </div>
 
         <table class="table table-bordered">
@@ -16,14 +16,13 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr *ngFor="let car of cars; let indice = index"> -->
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <tr *ngFor="let carStatus of carStatusList; let indice = index">
+                    <td>{{indice +1}} </td>
+                    <td> {{carStatus.name}} </td>
+                    <td> {{carStatus.description}} </td>
                     <td width="150" class="text-center">
-                        <button type="button" class="btn btn-info btn-sm mr-2" >Edit</button>
-                        <button type="button" class="btn btn-danger btn-sm" >Delete</button>
+                        <button type="button" class="btn btn-info btn-sm mr-2" (click)="onClickEditCarStatus(carStatus.id)">Edit</button>
+                        <button type="button" class="btn btn-danger btn-sm" (click)="onCLickDeleteCarStatus(carStatus.id)">Delete</button>
                     </td>
                 </tr>
             </tbody>

@@ -26,6 +26,14 @@ export class CarService {
     );
   }
 
+  getAvailableCars(): Observable<Car[]>{
+    return this.http.get<Car[]>(this.carUrl+'availableCars')
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
+
   getCarById(carId: string): Observable<Car>{
     return this.http.get<Car>(this.carUrl + 'getById/'+ carId)
     .pipe(
@@ -39,16 +47,14 @@ export class CarService {
     console.log(`car ${car} - carData ${carData} `);
 
     if(car.id == '0'){
-      //New car
-      console.log('Guardando nuevo');
+      console.log('Saving new car');
       return this.http.post<Car>(this.carUrl+'new', carData, this.httpOptions)
         .pipe(
           retry(1),
           catchError(this.handleError)
         )
     }else{
-      //Edit car
-      console.log('Editando car');
+      console.log('Editing car');
       return this.http.put<Car>(this.carUrl+'update/'+car.id, carData, this.httpOptions)
       .pipe(
         retry(1),

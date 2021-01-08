@@ -1,1 +1,33 @@
-<p>owner-list works!</p>
+<div class="">
+    <div class="col-md-12">
+        <h2 class="text-center">Owner List</h2>
+
+        <div class="text-right">
+            <button type="button" class="btn btn-primary mb-2" (click)="onClickNewOwner()">Add Owner</button>
+        </div>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nro</th>
+                    <th>Name</th>
+                    <th>First Last Name</th>
+                    <th>Second Last Name</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let owner of owners; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{owner.name}}</td>
+                    <td>{{owner.firstLastName}}</td>
+                    <td>{{owner.secondLastName}}</td>
+                    <td width="150" class="text-center">
+                        <button type="button" class="btn btn-info btn-sm mr-2" (click)="onClickEditOwner(owner.id)">Edit</button>
+                        <button type="button" class="btn btn-danger btn-sm" (click)="onClickDeleteOwner(owner.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

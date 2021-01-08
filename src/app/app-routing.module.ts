@@ -18,6 +18,26 @@ const routes: Routes = [
   {
     path: 'car-status-list',
     loadChildren: () => import('./components/car-status-list/car-status-list.module').then(m => m.CarStatusListModule)
+  },
+  {
+    path: 'car-status-save',
+    loadChildren: () => import('./components/car-status-save/car-status-save.module').then(m => m.CarStatusSaveModule)
+  },
+  {
+    path: 'owner-list',
+    loadChildren: () => import('./components/owner-list/owner-list.module').then( m => m.OwnerListModule)
+  },
+  {
+    path: 'owner-save',
+    loadChildren: () => import('./components/owner-save/owner-save.module').then( m => m.OwnerSaveModule )
+  },
+  {
+    path: 'car-owner-list',
+    loadChildren: () => import('./components/car-owner-list/car-owner-list.module').then( m => m.CarOwnerListModule )
+  },
+  {
+    path: 'car-owner-save',
+    loadChildren: () => import('./components/car-owner-save/car-owner-save.module').then( m => m.CarOwnerSaveModule )
   }
 ];
 

@@ -1,1 +1,29 @@
-<p>car-status-save works!</p>
+<div class="col-md-12">
+
+    <form id="carStatusForm" #carStatusForm="ngForm" (ngSubmit)="onCarStatusSubmit(carStatusForm)">
+        <fieldset class="scheduler-border">
+            <legend class="scheduler-border"> {{mode}} Car Status</legend>
+            <div class="form-group">
+                <div class="form-group row">
+                    <label for="name" class="col-md-2 col-form-label">Name:</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" #name="ngModel" name="name" [(ngModel)]="carStatus.name" placeholder="Enter name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="description" class="col-md-2 col-form-label">Description:</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" #description="ngModel" name="description" [(ngModel)]="carStatus.description" placeholder="Enter description">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-6 text-right">
+                        <button type="submit" class="btn btn-primary mr-2">Save</button>
+                        <button type="button" class="btn btn-primary" (click)="onCLickCancelCarStatus()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    
+</div>
