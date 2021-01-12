@@ -33,8 +33,8 @@ export class CarOwnerService {
   }
 
   saveCarOwner(carOwner: CarOwner): Observable<CarOwner>{
-    let carOwnerData = JSON.stringify(carOwner);
-
+    const carOwnerData = JSON.stringify(carOwner);
+    console.log(`carOwnerData: ${carOwnerData}`);
     if(carOwner.id == '0'){
       //new
       return this.http.post<CarOwner>(this.carOwnerUrl+'save', carOwnerData, this.httpOptions)

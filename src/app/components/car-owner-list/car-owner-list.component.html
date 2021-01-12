@@ -21,8 +21,8 @@
                     <td> {{carOwner.car.brand}}  {{carOwner.car.model}} - {{carOwner.car.year}} </td>
                     <td> {{carOwner.owner.name}} {{carOwner.owner.firstLastName}} {{carOwner.owner.secondLastName}} </td>
                     <td width="150" class="text-center">
-                        <button type="button" class="btn btn-info btn-sm mr-2" (click)="onClickEditCarOwner(carOwner.id)">Edit</button>
-                        <button type="button" class="btn btn-danger btn-sm" (click)="onClickDeleteCarOwner(carOwner.id)">Delete</button>
+                        <button type="button" class="btn btn-info btn-sm mr-2" (click)="onClickEditCarOwner(carOwner.id)" disabled>Edit</button>
+                        <button type="button" class="btn btn-danger btn-sm" (click)="onClickDeleteCarOwner(carOwner.id)" disabled>Delete</button>
                     </td>
                 </tr>
             </tbody>

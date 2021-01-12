@@ -4,6 +4,6 @@ import { Owner } from "./owner";
 export class CarOwner{
     public id: string;
     public dateAssignation: Date;
-    public car: Car;
-    public owner: Owner;
+    public carId: string;
+    public ownerId: string;
 }

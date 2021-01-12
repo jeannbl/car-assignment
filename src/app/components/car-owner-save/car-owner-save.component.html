@@ -4,28 +4,25 @@
         <fieldset class="scheduler-border">
             <legend class="scheduler-border"> {{mode}} Car Owner</legend>
             <div class="form-group">
-                <div class="form-group row">
-                    <label for="carList" class="col-md-2 col-form-label">Car list:</label>
-                    <!-- <div class="col-md-4">
-                        <input type="text" class="form-control" #carList="ngModel" name="carList" [(ngModel)]="carOwner.car" placeholder="Enter name">
-                    </div> -->
-                    <div class="col-md-3">
-                        <select (change)="carSelectChange($event)">
-                            <option [value]="car.id" *ngFor="let car of cars">{{car.brand}}</option>
-                        </select>
-                        <p><span>Car id selected: </span><b> {{carSelected}} </b></p>
-                    </div>
 
-                    <div class="col-md-3">
-                        <select (change)="ownerSelectChange($event)">
-                            <option [value]="owner.id" *ngFor="let owner of owners">{{owner.name}}</option>
-                        </select>
-                        <p><span>Owner id selected: </span><b> {{owerSelected}} </b></p>
-                    </div>
+                <div class="form-group col-md-4">
+                    <label for="car">Cars</label>
+                    <select name="carSelect" class="form-control" [(ngModel)]="carIdSelected">
+                        <option [value]="car.id" *ngFor="let car of cars">{{car.brand}}</option>
+                    </select>
                 </div>
-               
+
+                <div class="form-group row"></div>
+
+                <div class="form-group col-md-4">
+                    <label for="owner">Owners</label>
+                    <select name="ownerSelect" class="form-control" [(ngModel)]="ownerIdSelected">
+                        <option [value]="owner.id" *ngFor="let owner of owners">{{owner.name}}</option>
+                    </select>
+                </div>
+                    
                 <div class="form-group row">
-                    <div class="col-md-5 text-right">
+                    <div class="col-md-4 text-right">
                         <button type="submit" class="btn btn-primary mr-2">Save</button>
                         <button type="button" class="btn btn-primary" (click)="onCLickCancelCarOwner()">Cancel</button>
                     </div>

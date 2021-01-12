@@ -18,83 +18,72 @@ export class CarOwnerSaveComponent implements OnInit {
   public mode: string;
 
   carOwner = new CarOwner();
+  car = new Car();
+  owner = new Owner();
 
-  selectedDay: string = '';
-  carSelected: string = '';
-  owerSelected: string = '';
+  carIdSelected: string = null;
+  ownerIdSelected: string = null;
 
   cars : Car[] = [];
   owners: Owner[] = [];
+  lista:string[]=["hola","que","tal", "estas"];
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router,
-              private carOwnerService: CarOwnerService, private carService: CarService, private ownerService: OwnerService) { }
+              private carOwnerService: CarOwnerService, private carService: CarService, 
+              private ownerService: OwnerService) { }
 
   ngOnInit(): void {
-    console.log(`En ngOnInit`);
+    console.log(`ngOnInit - carOner ${this.carOwner}`);
     this.activatedRoute.queryParams.subscribe( (params: Params) => {
       this.carOwnerId = params['id'];
+      this.getAvailableCars();
+      this.getOwners();
 
       if(this.carOwnerId !== undefined){
-        //edit
         this.mode = 'Edit';
         this.getCarOwnerById(this.carOwnerId);
       }else{
         this.mode = 'Add';
-        this.carOwner['id'] = '0';
+        this.carOwner['id'] = '0';    
       }
-      console.log(`ngOnInit - carOnerId ${this.carOwnerId}`);
     });
-
-    this.getAvailableCars();
-    this.getOwners();
   }
 
   getCarOwnerById(carOwnerId: string){
     this.carOwnerService.getCarOwnerById(carOwnerId).subscribe( data=>{
       this.carOwner = data;
-      console.log(`this car owner - ${this.carOwner}`);
+      console.log(`getCarOwnerById - carID: ${this.carOwner.carId}`);
     });
   }
 
-  onCarOwnerSubmit(form){
-    this.carOwnerService.saveCarOwner(this.carOwner).subscribe( data=> {
-      console.log(`Car owner ${this.carOwner} was registered`);
-    });
-  }
-
-  onCLickCancelCarOwner(){
-    this.router.navigate(['/car-owner-list']);
-  }
-
-  
   getAvailableCars(){
     this.carService.getAvailableCars().subscribe( data => {
       this.cars = data;
-      console.log(`cars - ${this.cars}`);
     });
   }
 
   getOwners(){
     this.ownerService.getAllOwners().subscribe( data => {
       this.owners = data;
-      console.log(`owners - ${this.owners}`);
     });
   }
 
-  //event handler for the select element's change event
-  selectChangeHandler (event: any) {
-    //update the ui
-    this.selectedDay = event.target.value;
+  onCarOwnerSubmit(form){
+    this.carOwner.carId = this.carIdSelected;
+    this.carOwner.ownerId = this.ownerIdSelected;
+
+    if(this.carIdSelected !== null && this.ownerIdSelected !== ""){
+      this.carOwnerService.saveCarOwner(this.carOwner).subscribe( data=> {
+        console.log('Car owner '+data+' was registered');
+      });
+    }else{
+      console.log('You must select a car and an owner.');
+    }
+    this.router.navigate(['/car-owner-list']);
   }
 
-  carSelectChange(event: any){
-    this.carSelected = event.target.value;
-    console.log(`car selected ${this.carSelected}`);
-  }
-
-  ownerSelectChange(event: any){
-    this.owerSelected = event.target.value;
-    console.log(`Owner selected ${this.owerSelected}`);
+  onCLickCancelCarOwner(){
+    this.router.navigate(['/car-owner-list']);
   }
 
 }

@@ -1,17 +1,53 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <!--a class="navbar-brand" routerLink="/todo-list">Angular</a-->
-        <a class="navbar-brand" routerLink="/todo-list"></a>
+        <a class="navbar-brand" routerLink="/car-list">Angular Project</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item" [routerLinkActive]="['active']">
-                    <!--a class="nav-link" routerLink="/car-list">Car List</a-->
-                    <a class="nav-link" routerLink="/car-list"></a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Cars
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link" routerLink="/car-list">Car List</a>
+                        <a class="nav-link" routerLink="/car-save">Car Save</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Owners
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link" routerLink="/owner-list">Owner List</a>
+                        <a class="nav-link" routerLink="/owner-save">Owner Save</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Car Status
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link" routerLink="/car-status-list">Car Status List</a>
+                        <a class="nav-link" routerLink="/car-status-save">Car Status Save</a>
+                    </div>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Car Assignation
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link" routerLink="/car-owner-list">Car Assignation List</a>
+                        <a class="nav-link" routerLink="/car-owner-save">Car Assignation Save</a>
+                    </div>
                 </li>
             </ul>
         </div>
+        
     </nav>
 </header>
